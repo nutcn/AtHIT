@@ -1,0 +1,1 @@
+这是[在工大](http://www.zaigongda.com)项目的 React Native 实现。同时开发 iOS 和 Android 客户端。通过抓包的方法获得现有接口。
