@@ -1,0 +1,19 @@
+
+首页推荐文章列表： http://app.athit.co/v1/openconnected/recommend?page=1&uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129
+丁香园列表：http://app.athit.co/v1/openconnected/subscribe/118/?page=1
+文章详情：http://app.athit.co/v1/openconnected/article/17051/?uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129
+订阅动作：http://app.athit.co/v1/openconnected/subscribe?subscribe_id=74&uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129&actions=1
+订阅详情 mata：http://app.athit.co/v1/web-openconnected/subscirbeDetail/?subscribe_id=67
+十大新闻列表：http://app.athit.co/v1/openconnected/best-ten2?page=1
+获取应用列表：http://app.athit.co/v1/openconnected/get-applications_2?uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129&platform=ios&osVersion=9.2&appVersion=2.1
+订阅动作：http://app.athit.co/v1/openconnected/application?application_id=29&uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129&actions=1
+收藏列表：http://app.athit.co/v1/openconnected/interactive-articles?uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129&type=favor&page=1
+我的消息/评论列表：http://app.athit.co/v1/openconnected/my-messages?user_id=129&from_id=&type=comment&uuid=4d59e0a4795f44cdb354abffc3e86631
+我的消息/赞列表http://app.athit.co/v1/openconnected/my-messages?user_id=129&from_id=&type=like&uuid=4d59e0a4795f44cdb354abffc3e86631
+
+打开应用获取用户信息：http://app.athit.co/v1/openconnected/initial?uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129&token=e497e7b0857b96f0d3a84eb1fb49059d7e9d5fba
+打开本地登陆：http://app.athit.co/v1/openconnected/open-local
+获取启动广告: http://app.athit.co/v1/openconnected/get-boot-screen?id=0
+聊天消息、赞、评论计数：http://app.athit.co/v1/openconnected/has-message?user_id=129&uuid=4d59e0a4795f44cdb354abffc3e86631
+启动获取订阅列表：http://app.athit.co/v1/openconnected/get-subscribes?uuid=4d59e0a4795f44cdb354abffc3e86631&user_id=129
+好友推荐：http://app.athit.co/v1/openconnected/recommend-users
