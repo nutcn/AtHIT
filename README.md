@@ -25,9 +25,10 @@
 
 Windows用户可以参考[这个帖子](/bbs/post/7)来搭建环境。
 
-
-
+--- 
+<br>
 ##运行错误解决方法
+### iOS
 如果 Xcode 编译遇到以下错误
 
 ```
@@ -38,3 +39,12 @@ uncaught error Error: ReferenceError: [BABEL] /Users/zhongshaofen/Development/At
 Command /bin/sh failed with exit code 1
 ```
 删除`*/node_modules/react-deep-force-update/.babelrc`这个文件就可以运行了
+### Android
+在`react-native run-android`时遇到下面的错误
+
+```
+A problem occurred evaluating project ':app'.
+> SDK location not found. Define location with sdk.dir in the local.properties file or with an ANDROID_HOME environment variable.
+
+```
+在`./android/`路径下添加`local.properties`文件，添加文件内容是`sdk.dir=/usr/local/opt/android-sdk`。再运行就可以了
