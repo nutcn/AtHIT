@@ -12,6 +12,7 @@
  } from 'react-native'
 
 import ArticleListService from './ArticleListService'
+import ArticleCell from './ArticleCell'
 
 class ArticleView extends Component {
   constructor(props) {
@@ -20,6 +21,9 @@ class ArticleView extends Component {
     const dataSource = new ListView.DataSource({
       rowHasChanged: (row1, row2) => row1 !== row2,
     });
+
+    this.pressArticleCellAtRow = this.pressArticleCellAtRow.bind(this);
+    this.renderRow = this.renderRow.bind(this);
 
     this.state = {
       dataSource: dataSource.cloneWithRows([]),
@@ -46,21 +50,34 @@ class ArticleView extends Component {
 
   }
 
-  async fetchArticleListData() {
-
+  renderRow(rowData, sectionID, rowID, highlightRow) {
+    return (
+      <ArticleCell
+        articleModel={rowData}
+        onSelect={() => {this.pressArticleCellAtRow()}}
+        key={rowData.id}
+      />
+    );
   }
 
-  renderRow() {
-
+  renderSeparator(sectionID, rowID,adjacentRowHighlighted) {
+    return (
+      <View style={styles.seperator} key={rowID}/>
+    );
   }
+
+  pressArticleCellAtRow = () => {
+    console.log('hello');
+  };
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.test}>
-          测试测试测试
-        </Text>
-      </View>
+      <ListView
+       style={styles.container}
+       dataSource={this.state.dataSource}
+       renderRow={this.renderRow}
+       renderSeparator={this.renderSeparator}
+       />
     );
   }
 }
@@ -68,15 +85,14 @@ class ArticleView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FF0000',
+    backgroundColor: '#ffffff',
+    marginTop: 64,
   },
-  test: {
-    fontSize: 18,
-    textAlign: 'center',
-    margin: 10,
-  },
+  seperator: {
+    height: 0.5,
+    marginLeft: 8,
+    backgroundColor: '#e3e3e3',
+  }
 })
 
 module.exports = ArticleView
