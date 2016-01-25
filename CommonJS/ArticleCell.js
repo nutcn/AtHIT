@@ -49,7 +49,17 @@ const styles = StyleSheet.create({
   imageContainer: {
     marginBottom: 12,
     flexDirection: 'row',
-  }
+  },
+  singleImageContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    flex: 1,
+    marginTop: 16,
+    marginBottom: 16,
+  },
+  singleTextContainer: {
+    maxWidth: 100,
+  },
 });
 
 class ArticleCell extends React.Component {
@@ -63,40 +73,73 @@ class ArticleCell extends React.Component {
 
   render() {
     article = this.props.articleModel;
-    console.log(this.props.onSelect);
     return (
       <TouchableHighlight
         underlayColor='#efefef'
         onPress={this.props.onSelect.bind(this)}>
-
-        <View style={styles.cell}>
-          <Text style={styles.title}>
-            {article.title}
-          </Text>
-
-          <View style={styles.subtitleContainer}>
-            <Text style={styles.subtitle}>{article.author}</Text>
-            <Text style={styles.subtitle}>{article.department}</Text>
-            <Text style={styles.subtitle}>{article.publish_time}</Text>
-          </View>
-          <View style={styles.subtitleContainer}>
-            <Text style={styles.countNumber}>{article.click_count}</Text>
-            <Text style={styles.countNumber}>{article.like_count}</Text>
-            <Text style={styles.countNumber}>{article.comments_count}</Text>
-          </View>
-          <View style={styles.imageContainer}>
-            <Image style={styles.images} source={{uri: article.images[0]}} />
-            <Image style={styles.images} source={{uri: article.images[1]}} />
-            <Image style={styles.images} source={{uri: article.images[2]}} />
-          </View>
-        </View>
+          {this.contentRendered(article)}
       </TouchableHighlight>
     );
   }
 
-  renderText(article) {
+  textRendered(article) {
+    return (
+      <View>
+        <Text style={styles.title}>
+          {article.title}
+        </Text>
+        <View style={styles.subtitleContainer}>
+          <Text style={styles.subtitle}>{article.author}</Text>
+          <Text style={styles.subtitle}>{article.department}</Text>
+          <Text style={styles.subtitle}>{article.publish_time}</Text>
+        </View>
+        <View style={styles.subtitleContainer}>
+          <Text style={styles.countNumber}>阅 {article.click_count}</Text>
+          <Text style={styles.countNumber}>赞 {article.like_count}</Text>
+          <Text style={styles.countNumber}>评 {article.comments_count}</Text>
+        </View>
+      </View>
+    );
+  }
 
+// 3张图以上
+  multiImageRendered(article) {
+    if (article.images.length < 3) {
+      return null;
+    }
+    return (
+      <View style={styles.imageContainer}>
+        <Image style={styles.images} source={{uri: article.images[0]}} />
+        <Image style={styles.images} source={{uri: article.images[1]}} />
+        <Image style={styles.images} source={{uri: article.images[2]}} />
+      </View>
+    );
+  }
+// 一张图
+  singleImageRendered(article) {
+    return (
+      <View style={styles.singleImageContainer}>
+        <View style={styles.singleTextContainer}>
+          {this.textRendered(article)}
+        </View>
+        <Image style={styles.images} source={{uri: article.images[0]}} />
+      </View>
+    );
+  }
+
+  contentRendered(article) {
+    if (article.images.length == 1 || article.images.length == 2) {
+      return (this.singleImageRendered(article));
+    } else {
+      return (
+        <View style={styles.cell}>
+          {this.textRendered(article)}
+          {this.multiImageRendered(article)}
+        </View>
+      );
+    }
   }
 
 }
+
 export default ArticleCell;
