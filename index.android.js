@@ -2,32 +2,18 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+ 'use strict';
+ import React, {
+   AppRegistry,
+   Component,
+ } from 'react-native';
 
-import ArticleView from './CommonJS/ArticleListView'
+ import NavigatorBar from './CommonJS/NavigationBar'
 
-class AtHIT extends Component {
-  render() {
-    return (
-      <ArticleView />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
+ class AtHIT extends Component {
+   render() {
+     return  NavigatorBar.renderNavigator();
+   }
+ }
 
 AppRegistry.registerComponent('AtHIT', () => AtHIT);

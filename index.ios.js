@@ -6,29 +6,14 @@
 import React, {
   AppRegistry,
   Component,
-  StyleSheet,
-  Text,
-  View
 } from 'react-native';
 
-import ArticleView from './CommonJS/ArticleListView'
+import NavigatorBar from './CommonJS/NavigationBar'
 
 class AtHIT extends Component {
   render() {
-    return (
-      <ArticleView />
-    );
+    return  NavigatorBar.renderNavigator();
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  
-});
 
 AppRegistry.registerComponent('AtHIT', () => AtHIT);
