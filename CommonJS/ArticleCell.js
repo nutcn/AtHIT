@@ -53,12 +53,13 @@ const styles = StyleSheet.create({
   singleImageContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 1,
-    marginTop: 16,
-    marginBottom: 16,
+    marginTop: 8,
+    marginLeft: 8,
+    marginBottom: 8,
   },
   singleTextContainer: {
-    maxWidth: 100,
+    width: width - imageWidth - 16,
+    flex: 1,
   },
 });
 
@@ -85,11 +86,11 @@ class ArticleCell extends React.Component {
   textRendered(article) {
     return (
       <View>
-        <Text style={styles.title}>
+        <Text style={styles.title} numberOfLines={2}>
           {article.title}
         </Text>
         <View style={styles.subtitleContainer}>
-          <Text style={styles.subtitle}>{article.author}</Text>
+          <Text style={styles.subtitle}>{article.source_site_name}</Text>
           <Text style={styles.subtitle}>{article.department}</Text>
           <Text style={styles.subtitle}>{article.publish_time}</Text>
         </View>
