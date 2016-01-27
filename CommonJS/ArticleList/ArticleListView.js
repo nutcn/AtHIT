@@ -13,6 +13,7 @@
 
 import ArticleListService from './ArticleListService'
 import ArticleCell from './ArticleCell'
+import ArticleContentView from '../ArticleContent/ArticleContentView'
 
 class ArticleView extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ class ArticleView extends Component {
     return (
       <ArticleCell
         articleModel={rowData}
-        onSelect={() => {this.pressArticleCellAtRow()}}
+        onSelect={() => {this.pressArticleCellAtRow(rowData)}}
         key={rowData.id}
       />
     );
@@ -66,8 +67,12 @@ class ArticleView extends Component {
     );
   }
 
-  pressArticleCellAtRow = () => {
-    console.log('hello');
+  pressArticleCellAtRow = (rowData) => {
+      this.props.navigator.push({
+        name: rowData.title,
+        component: ArticleContentView,
+        params:{articleURL: rowData.url}
+      });
   };
 
   render() {

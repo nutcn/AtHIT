@@ -6,6 +6,7 @@
 import React, {
   AppRegistry,
   Component,
+  WebView,
 } from 'react-native';
 
 import NavigatorBar from './CommonJS/NavigationBar'
